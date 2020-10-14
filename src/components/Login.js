@@ -64,7 +64,6 @@ class Login extends React.Component {
       })
       .then(res => res.json())
       .then(res => {
-        console.log(res)
         if (res.login) {
           this.props.handleSuccessfulAuth(res);
         }

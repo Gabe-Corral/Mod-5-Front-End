@@ -6,6 +6,8 @@ import Review from './Album'
 import ReviewPage from './ReviewPage'
 import AllReviews from './AllReviews'
 import WriteAReview from './WriteAReview'
+import Search from './Search'
+import ArtistPage from './ArtistPage'
 
 const url = "http://localhost:3000";
 
@@ -16,6 +18,8 @@ class Main extends React.Component {
 
     this.state = {
       reviews: [],
+      artists: [],
+      currentArtist: {},
       currentReview: {},
       showResults: false,
       searchWords: "",
@@ -33,12 +37,10 @@ class Main extends React.Component {
     fetch(`${url}/review`)
     .then(res => res.json())
     .then(reviews => this.setState({ reviews }))
-  }
 
-  getAlbums = () => {
-    fetch(`${url}/album`)
+    fetch(`${url}/artist`)
     .then(res => res.json())
-    .then(albums => console.log(albums))
+    .then(artists => this.setState({ artists }))
   }
 
   getFullReview = (review) => {
@@ -47,6 +49,7 @@ class Main extends React.Component {
         this.setState({ currentReview: r });
       }
     })
+    this.setState({ showResults: false })
   }
 
   handleSearchBar = (e) => {
@@ -61,13 +64,21 @@ class Main extends React.Component {
     this.setState({ searchReseults: searched })
   }
 
+  setCurrentArtist = (artistName) => {
+    this.state.artists.forEach(a => {
+      if (artistName === a.name) {
+        this.setState({ currentArtist: a })
+      }
+    })
+  }
+
   render() {
     const sortedReviews = this.state.reviews.sort(function(a, b) {
       return b.rating - a.rating;
     })
     return (
       <div className="nav-bar">
-
+      <Router>
       <div className="topnav">
       <a href="/">Home</a>
       <a href="/reviews" className="sub-menu">Reviews</a>
@@ -84,14 +95,14 @@ class Main extends React.Component {
         className="search-bar" type="text" placeholder="Search.." />
         {this.state.showResults ? (
           <div className="search-table">
-            {this.state.searchReseults.map(r => <Review review={r} key={r.id} getFullReview={this.getFullReview} />)}
+            {this.state.searchReseults.map(r => <Search review={r} key={r.id} getFullReview={this.getFullReview} />)}
           </div>
         ) : (
           ""
         )}
       </div>
       </div>
-      <Router>
+
       <Switch>
       <Route exact path="/reviews">
       <div>
@@ -120,8 +131,15 @@ class Main extends React.Component {
       <Route exect path="/write">
         <WriteAReview user={this.props.user}/>
       </Route>
+      <Route path="/artist/:name">
+        <ArtistPage
+        currentArtist={this.state.currentArtist}
+        getFullReview={this.getFullReview}/>
+      </Route>
       <Route path="/:id">
-        <ReviewPage currentReview={this.state.currentReview}/>
+        <ReviewPage
+        currentReview={this.state.currentReview}
+        setCurrentArtist={this.setCurrentArtist}/>
       </Route>
       </Switch>
       </Router>

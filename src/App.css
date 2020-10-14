@@ -230,3 +230,88 @@ body {
   margin-right: -390px;
   display: block;
 }
+
+.review-container {
+  float: none;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  border: 1px solid #ddd;
+  width: 25%;
+  height: 25%;
+  background-color: white;
+}
+
+.search-container .img-con {
+  flex: 0 0 150px;
+}
+
+.search-container .img-con img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  max-height: 100px;
+  max-width: 100px;
+  height: 100px;
+  width: 100px;
+}
+
+.search-container .search-content {
+  padding-left: 150px;
+}
+
+.search-container:hover {
+  background-color: lightgrey;
+}
+
+.artist-container {
+  text-align: center;
+}
+
+.artist-name:hover {
+  color: grey;
+}
+
+.write-container {
+  margin-left: 440px;
+  width: 10%;
+  padding: 40px;
+}
+
+.write-container label {
+  border-radius: 5px;
+  padding: 6px;
+  border: none;
+  width: 100px;
+  font-size: 13px;
+  float: left;
+  clear: both;
+}
+
+.write-container input {
+  border-radius: 5px;
+  padding: 6px;
+  border: none;
+  width: 300px;
+  font-size: 13px;
+  clear: both;
+}
+
+.write-container textarea {
+  border-radius: 5px;
+  padding: 6px;
+  border: none;
+  width: 300px;
+  font-size: 13px;
+  clear: both;
+}
+
+.write-container  button {
+  clear: both;
+}
+
+.comment-container {
+  clear: both;
+  text-align: center;
+}

@@ -27,7 +27,6 @@ class App extends React.Component {
     .then(res => {
       if ( res.logged_in === true) {
       this.setState({ loggedInStatus: true, user: res.user })
-      console.log(res)
       } else {
         this.setState({ loggedInStatus: false })
       }
@@ -53,7 +52,6 @@ class App extends React.Component {
     })
     .then(res => res.json())
     .then(res => {
-      console.log(res)
       this.setState({ loggedInStatus: false })
     })
   }

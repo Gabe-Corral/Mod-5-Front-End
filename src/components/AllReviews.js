@@ -19,7 +19,8 @@ const AllReviews = (props) => {
       </div>
       <div className="content">
         <p>Rating: {props.review.rating}/10</p>
-        <p>{props.review.title} by {props.review.artist}</p>
+        <p>{props.review.title}</p>
+        <p>{props.review.artist}</p>
         </div>
       </div>
       </div>

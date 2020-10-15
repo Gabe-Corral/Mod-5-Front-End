@@ -11,7 +11,7 @@ class ArtistPage extends React.Component {
     const id = this.props.currentArtist.id;
     fetch(`http://localhost:3000/getalbums/${id}`)
       .then(res => res.json())
-      .then(albums => this.setState({ albums: albums[0] }))
+      .then(albums => this.setState({ albums }))
   }
 
   render() {
@@ -19,7 +19,7 @@ class ArtistPage extends React.Component {
       <div className="artist-container">
         <h2>{this.props.currentArtist.name}</h2>
         <h3>{this.props.currentArtist.genre}</h3>
-        {this.state.albums.map(a => <AllReviews review={a} key={a.id} getFullReview={this.props.getFullReview}/>)}
+        {this.state.albums.map(a => <AllReviews review={a[0]} key={a[0].id} getFullReview={this.props.getFullReview}/>)}
       </div>
     )
   }

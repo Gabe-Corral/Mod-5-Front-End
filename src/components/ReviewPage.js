@@ -5,13 +5,20 @@ import { useHistory } from 'react-router-dom';
 const ReviewPage = (props) => {
   const [comments, setComments] = useState();
   const [commentForm, setCommentForm] = useState(false);
+  const [loading, setLoading] = useState(true);
   const history = useHistory();
+  const url = "http://localhost:3000";
 
   useEffect(() => {
     const id = props.currentReview.id;
-    fetch(`http://localhost:3000/getcomments/${id}`)
-      .then(res => res.json())
-      .then(comments => setComments(comments))
+    if (loading) {
+      fetch(`${url}/getcomments/${id}`)
+        .then(res => res.json())
+        .then(comments => {
+          setComments(comments)
+      })
+    }
+    return () => setLoading(false);
   })
 
   const handleClick = () => {
@@ -22,6 +29,24 @@ const ReviewPage = (props) => {
 
   const handleComment = () => {
     setCommentForm(true);
+  }
+
+  const handlePostComment = (e) => {
+    e.preventDefault()
+    fetch(`${url}/comment`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        user_id: props.user.id,
+        review_id: props.currentReview.id,
+        username: props.user.username,
+        comment: e.target.comment.value
+      })
+    })
+    setLoading(true);
   }
 
   return (
@@ -42,9 +67,13 @@ const ReviewPage = (props) => {
       </div>
     </div>
     </div>
-    <button onClick={handleComment}>Add a Comment</button>
+    <button className="comment-button"
+    onClick={handleComment}>Add a Comment</button>
     {commentForm ? (
-      <input type="text" />
+      <form className="comment-form" onSubmit={handlePostComment}>
+      <input type="text" name="comment" />
+      <button type="submit">Post Comment</button>
+      </form>
     ) : (
       ""
     )}

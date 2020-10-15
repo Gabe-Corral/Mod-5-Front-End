@@ -14,13 +14,13 @@ class WriteAReview extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const artist = e.target.artist.value.split(" ").join("%20")
 
     const newReview = {
       user_id: this.props.user.id,
       rating: e.target.rating.value,
-      artist: artist,
-      title: e.target.artist.value,
+      artist: e.target.artist.value,
+      title: e.target.title.value,
+      genre: e.target.genre.value,
       img: e.target.artwork.value,
       review: this.state.review
     }
@@ -48,9 +48,11 @@ class WriteAReview extends React.Component {
           <label>Artist Name:</label>
           <input type="text" name="artist"/>
           <label>Album Title:</label>
-          <input type="text" name="album"/>
+          <input type="text" name="title"/>
           <label>Rating:</label>
           <input type="number" name="rating"/>
+          <label>Genre:</label>
+          <input type="text" name="genre" />
           <label>Album Artwork:</label>
           <input type="text" name="artwork"/>
           <label>Review:</label>

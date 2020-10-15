@@ -38,8 +38,23 @@ body {
   padding: 6px;
   border: none;
   margin-top: 8px;
-  margin-right: 16px;
+  margin-right: 10px;
   font-size: 17px;
+}
+
+.topnav .search-icon {
+  color: #008B8B;
+  border-radius: 5px;
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 10px;
+  font-size: 17px;
+}
+
+.search-icon:hover {
+  background-color: white;
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
@@ -95,10 +110,6 @@ body {
   border: none;
   cursor: pointer;
   width: 100%;
-}
-
-.reviews {
-
 }
 
 .review-container {
@@ -210,24 +221,20 @@ body {
   margin: auto;
 }
 
-/* .nav-bar .topnav .hidden-menu {
-  display: none;
-} */
-
 .search-bar {
   width: 30%;
 }
 
 .search-table {
   border-radius: 5px;
-  width: 30%; /* Full-width */
+  width: 30.2%; /* Full-width */
   border: 1px solid #ddd; /* Add a grey border */
   font-size: 18px; /* Increase font-size */
   float: right;
   padding: 6px;
-  margin-top: 40px;
+  margin-top: 42px;
   background-color: white;
-  margin-right: -390px;
+  margin-right: -394px;
   display: block;
 }
 
@@ -243,22 +250,8 @@ body {
   background-color: white;
 }
 
-.search-container .img-con {
-  flex: 0 0 150px;
-}
-
-.search-container .img-con img {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  max-height: 100px;
-  max-width: 100px;
-  height: 100px;
-  width: 100px;
-}
-
 .search-container .search-content {
-  padding-left: 150px;
+  padding-left: 155px;
 }
 
 .search-container:hover {
@@ -302,16 +295,61 @@ body {
   border-radius: 5px;
   padding: 6px;
   border: none;
-  width: 300px;
+  width: 500px;
+  height: 300px;
   font-size: 13px;
   clear: both;
+  margin-left: -80px;
+  position: relative;
 }
 
 .write-container  button {
   clear: both;
+  margin: auto;
 }
 
 .comment-container {
   clear: both;
   text-align: center;
+}
+
+.button {
+  border-radius: 5px;
+}
+
+.comment-container {
+  float: none;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  border: 1px solid #ddd;
+  width: 25%;
+  height: 25%;
+  background-color: white;
+  margin: auto;
+}
+
+.show-more {
+  float: none;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  border: 1px solid #ddd;
+  background-color: white;
+  margin: auto;
+}
+
+.artist-review-container {
+  float: right;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  border: 1px solid #ddd;
+  width: 40%;
+  height: 40%;
+  background-color: white;
+  margin: auto;
 }

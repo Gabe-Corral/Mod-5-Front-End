@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './Login'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Review from './Album'
 import ReviewPage from './ReviewPage'
 import AllReviews from './AllReviews'
 import WriteAReview from './WriteAReview'
 import Search from './Search'
 import ArtistPage from './ArtistPage'
+import { FaSearch } from 'react-icons/fa';
 
 const url = "http://localhost:3000";
 
@@ -23,7 +23,10 @@ class Main extends React.Component {
       currentReview: {},
       showResults: false,
       searchWords: "",
-      searchReseults: []
+      searchReseults: [],
+      showMore: 10,
+      searchBar: false,
+      showDropDowm: false
     }
 
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this)
@@ -60,16 +63,30 @@ class Main extends React.Component {
 
   handleSearchResults = (e) => {
     let search = e.target.value;
-    const searched = this.state.reviews.filter(r => r.title.includes(search))
+    const searched = this.state.artists.filter(a => a.name.includes(search))
     this.setState({ searchReseults: searched })
   }
 
   setCurrentArtist = (artistName) => {
     this.state.artists.forEach(a => {
       if (artistName === a.name) {
-        this.setState({ currentArtist: a })
+        this.setState({ currentArtist: a, showResults: false })
       }
     })
+  }
+
+  handleShowMore = () => {
+    this.setState({ showMore: this.state.showMore + 10 })
+  }
+
+  showSearchBar = () => {
+    this.setState({ searchBar: !this.state.searchBar,
+    showResults: !this.state.showResults })
+  }
+
+  sortingReviews = (e) => {
+    e.preventDefault()
+    console.log(e.target.value)
   }
 
   render() {
@@ -91,11 +108,16 @@ class Main extends React.Component {
         <a href="/login">Login</a>
       )}
       <div>
-        <input onChange={this.handleSearchBar}
-        className="search-bar" type="text" placeholder="Search.." />
+      <div onClick={this.showSearchBar} className="search-icon">
+      <FaSearch />
+      </div>
+        {this.state.searchBar ? (
+          <input onChange={this.handleSearchBar}
+          className="search-bar" type="text" placeholder="Search.." />
+        ) : ""}
         {this.state.showResults ? (
           <div className="search-table">
-            {this.state.searchReseults.map(r => <Search review={r} key={r.id} getFullReview={this.getFullReview} />)}
+            {this.state.searchReseults.map(r => <Search artist={r} key={r.id} setCurrentArtist={this.setCurrentArtist} />)}
           </div>
         ) : (
           ""
@@ -106,16 +128,15 @@ class Main extends React.Component {
       <Switch>
       <Route exact path="/reviews">
       <div>
-      <label>Genre</label>
-      <select>
-      <option>All</option>
-      <option>Folk</option>
-      <option>experimental</option>
-      <option>Metal</option>
-      <option>Rock</option>
+      <label>Sort by:</label>
+      <select onChange={this.sortingReviews}>
+      <option>Rating</option>
+      <option>Year</option>
       </select>
       </div>
-        {this.state.reviews.map(r => <AllReviews review={r} key={r.id} getFullReview={this.getFullReview}/>)}
+        {this.state.reviews.slice(0, this.state.showMore).map(r => <AllReviews review={r} key={r.id} getFullReview={this.getFullReview}/>)}
+        <button className="show-more"
+        onClick={this.handleShowMore}>Show More</button>
       </Route>
       <Route exact path="/login">
         <Login handleSuccessfulAuth={this.handleSuccessfulAuth}/>
@@ -123,7 +144,7 @@ class Main extends React.Component {
       <Route exact path="/">
         <div className="reviews">
           <h3>Top Charts:</h3>
-          {sortedReviews.map(r => <Review review={r} key={r.id} getFullReview={this.getFullReview} />)}
+          {sortedReviews.slice(0, 5).map(r => <Review review={r} key={r.id} getFullReview={this.getFullReview} />)}
           <div className="recent-reviews">
         </div>
       </div>
@@ -139,7 +160,8 @@ class Main extends React.Component {
       <Route path="/:id">
         <ReviewPage
         currentReview={this.state.currentReview}
-        setCurrentArtist={this.setCurrentArtist}/>
+        setCurrentArtist={this.setCurrentArtist}
+        user={this.props.user}/>
       </Route>
       </Switch>
       </Router>

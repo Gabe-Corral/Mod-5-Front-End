@@ -4,22 +4,19 @@ import { useHistory } from 'react-router-dom';
 const Search = (props) => {
   const history = useHistory();
 
-  const handleClick = (review) => {
-    history.push(`/${props.review.id}`)
-    props.getFullReview(review)
+  const handleClick = (artist) => {
+    const name = artist.name.split(" ").join("")
+    history.push(`/artist/${name}`)
+    props.setCurrentArtist(artist.name)
   }
 
   return (
     <div>
       <div className="search-container"
-       onClick={() => handleClick(props.review)}>
-      <div className="img-con">
-        <img alt="cover-art" src={props.review.img} />
-      </div>
-      <div className="search-content">
-        <p>Rating: {props.review.rating}/10</p>
-        <p>{props.review.title} by {props.review.artist}</p>
-        </div>
+       onClick={() => handleClick(props.artist)}>
+       <div>
+       {props.artist.name}
+       </div>
       </div>
     </div>
     )

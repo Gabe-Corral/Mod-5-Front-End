@@ -5,7 +5,7 @@ const Comments = (props) => {
 
   return (
     <div className="comment-container">
-    {props.comment.comment}
+    {props.comment.username}: {props.comment.comment}
     </div>
   )
 }

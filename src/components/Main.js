@@ -26,7 +26,8 @@ class Main extends React.Component {
       searchReseults: [],
       showMore: 10,
       searchBar: false,
-      showDropDowm: false
+      showDropDowm: false,
+      sortType: "rating"
     }
 
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this)
@@ -80,18 +81,19 @@ class Main extends React.Component {
   }
 
   showSearchBar = () => {
-    this.setState({ searchBar: !this.state.searchBar,
-    showResults: !this.state.showResults })
+    this.setState({ searchBar: !this.state.searchBar })
   }
 
   sortingReviews = (e) => {
     e.preventDefault()
-    console.log(e.target.value)
+    this.setState({ sortType: e.target.value })
+    console.log(this.state.sortType)
   }
 
   render() {
+    const type = this.state.sortType
     const sortedReviews = this.state.reviews.sort(function(a, b) {
-      return b.rating - a.rating;
+      return b[type] - a[type];
     })
     return (
       <div className="nav-bar">
@@ -130,8 +132,8 @@ class Main extends React.Component {
       <div>
       <label>Sort by:</label>
       <select onChange={this.sortingReviews}>
-      <option>Rating</option>
-      <option>Year</option>
+      <option>rating</option>
+      <option value="release_date">year</option>
       </select>
       </div>
         {this.state.reviews.slice(0, this.state.showMore).map(r => <AllReviews review={r} key={r.id} getFullReview={this.getFullReview}/>)}

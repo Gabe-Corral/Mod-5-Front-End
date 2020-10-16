@@ -7,7 +7,9 @@ class WriteAReview extends React.Component {
   constructor() {
     super();
     this.state = {
-      review: ""
+      review: "",
+      submitted: false,
+      subReview: {}
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -22,6 +24,7 @@ class WriteAReview extends React.Component {
       title: e.target.title.value,
       genre: e.target.genre.value,
       img: e.target.artwork.value,
+      release_date: e.target.release_date.value,
       review: this.state.review
     }
 
@@ -33,6 +36,8 @@ class WriteAReview extends React.Component {
       method: 'POST',
       body: JSON.stringify(newReview)
     })
+
+    this.setState({ submitted: true })
   }
 
   handleChange = (e) => {
@@ -55,6 +60,8 @@ class WriteAReview extends React.Component {
           <input type="text" name="genre" />
           <label>Album Artwork:</label>
           <input type="text" name="artwork"/>
+          <label>Release Date:</label>
+          <input type="number" name="release_date"/>
           <label>Review:</label>
           <textarea value={this.state.value} onChange={this.handleChange} />
           <button type="submit">Submit</button>
@@ -62,6 +69,12 @@ class WriteAReview extends React.Component {
       ) : (
         <h3>You must be logged in to write a review.</h3>
       )}
+      {this.state.submitted ? (
+        <div className="submitted-review">
+        <h3>Thank you for submiting a review.</h3>
+        <h3>You can find your review <a href="/reviews">here</a></h3>
+        </div>
+      ) : ""}
       </div>
     )
   }

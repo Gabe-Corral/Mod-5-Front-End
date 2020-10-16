@@ -62,18 +62,20 @@ const ReviewPage = (props) => {
       onClick={handleClick}>{props.currentReview.artist}</h3>
       <h3>{props.currentReview.rating}/10</h3>
       </div>
-      <div className="full-review">
+      <p className="full-review">
       {props.currentReview.review}
-      </div>
+      </p>
     </div>
     </div>
     <button className="comment-button"
     onClick={handleComment}>Add a Comment</button>
     {commentForm ? (
+      <div className="write-comment-container">
       <form className="comment-form" onSubmit={handlePostComment}>
-      <input type="text" name="comment" />
+      <textarea></textarea>
       <button type="submit">Post Comment</button>
       </form>
+      </div>
     ) : (
       ""
     )}

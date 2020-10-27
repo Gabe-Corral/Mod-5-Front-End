@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -68,6 +69,7 @@ class Login extends React.Component {
           this.props.handleSuccessfulAuth(res);
         }
       })
+      this.props.history.push('/')
   }
 
   handleSignUpForm = (e) => {
@@ -81,7 +83,7 @@ class Login extends React.Component {
       {this.state.signup ? (
         <form onSubmit={this.handleSignUp} className="login-form">
         <h2>Sign Up</h2>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username">Username </label>
           <input
             onChange={this.handleChange}
             type="text"
@@ -89,15 +91,19 @@ class Login extends React.Component {
             className="username"
             name="username"
           />
+          <span className="highlight"></span>
+          <span className="bar"></span>
           <div>
-            <label htmlFor="password">password: </label>
+            <label htmlFor="password">password </label>
             <input
             onChange={this.handleChange}
               type="password"
               placeholder="enter a password"
               name="password"
             />
-          </div>
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            </div>
           <div>
           <label> Confirm Password</label>
           <input type="password" placeholder="confirm password" name="password-con"/>
@@ -107,18 +113,18 @@ class Login extends React.Component {
       ) : (
         <form onSubmit={this.handleLoginForm} className="login-form">
           <h2>Login</h2>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username">Username </label>
           <input
             type="text"
-            placeholder="enter a username"
+            placeholder="enter username"
             className="username"
             name="username"
           />
           <div>
-            <label htmlFor="password">password: </label>
+            <label htmlFor="password">password </label>
             <input
               type="password"
-              placeholder="enter a password"
+              placeholder="enter password"
               name="password"
             />
           </div>
@@ -131,4 +137,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+export default withRouter(Login);

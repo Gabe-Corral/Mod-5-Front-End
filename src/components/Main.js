@@ -8,6 +8,8 @@ import WriteAReview from './WriteAReview'
 import Search from './Search'
 import ArtistPage from './ArtistPage'
 import { FaSearch } from 'react-icons/fa';
+import Profile from './Profile'
+import EditReview from './EditReview'
 
 const url = "http://localhost:3000";
 
@@ -87,7 +89,6 @@ class Main extends React.Component {
   sortingReviews = (e) => {
     e.preventDefault()
     this.setState({ sortType: e.target.value })
-    console.log(this.state.sortType)
   }
 
   render() {
@@ -101,11 +102,12 @@ class Main extends React.Component {
       <div className="topnav">
       <a href="/">Home</a>
       <a href="/reviews" className="sub-menu">Reviews</a>
-      <div className="hidden-menu">
-        <a href="/write">Write a review</a>
-      </div>
+        <a href="/write">Write A Review</a>
       {this.props.loggedInStatus ? (
+        <div>
+        <a href={`/username/${this.props.user.username}`}>Profile</a>
         <a onClick={this.props.handleLogout} href="/">Logout</a>
+        </div>
       ) : (
         <a href="/login">Login</a>
       )}
@@ -130,10 +132,9 @@ class Main extends React.Component {
       <Switch>
       <Route exact path="/reviews">
       <div>
-      <label>Sort by:</label>
-      <select onChange={this.sortingReviews}>
+      <select onChange={this.sortingReviews} className="sort-select">
       <option>rating</option>
-      <option value="release_date">year</option>
+      <option value="release_date">Release</option>
       </select>
       </div>
         {this.state.reviews.slice(0, this.state.showMore).map(r => <AllReviews review={r} key={r.id} getFullReview={this.getFullReview}/>)}
@@ -145,19 +146,31 @@ class Main extends React.Component {
       </Route>
       <Route exact path="/">
         <div className="reviews">
-          <h3>Top Charts:</h3>
+          <h3 className="top-charts">Top Charts:</h3>
           {sortedReviews.slice(0, 5).map(r => <Review review={r} key={r.id} getFullReview={this.getFullReview} />)}
-          <div className="recent-reviews">
+          <div className="description">
+            <h3>Gabe's Music Reviews</h3>
+            <p>A place to review your favorite music and discover new music.</p>
+            <p>You can search for artists, look at reviews, comment on reviews,</p>
+            <p>and write your own reviews. Just login or create an account.</p>
         </div>
       </div>
       </Route>
       <Route exect path="/write">
         <WriteAReview user={this.props.user}/>
       </Route>
+      <Route path="/review/:id">
+        <EditReview
+        currentReview={this.state.currentReview} />
+      </Route>
       <Route path="/artist/:name">
         <ArtistPage
         currentArtist={this.state.currentArtist}
         getFullReview={this.getFullReview}/>
+      </Route>
+      <Route path="/username/:username">
+      <Profile user={this.props.user}
+      getFullReview={this.getFullReview}/>
       </Route>
       <Route path="/:id">
         <ReviewPage

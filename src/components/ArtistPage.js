@@ -17,8 +17,10 @@ class ArtistPage extends React.Component {
   render() {
     return (
       <div className="artist-container">
+      <div className="artist-contents">
         <h2>{this.props.currentArtist.name}</h2>
         <h3>{this.props.currentArtist.genre}</h3>
+        </div>
         {this.state.albums.map(a => <AllReviews review={a[0]} key={a[0].id} getFullReview={this.props.getFullReview}/>)}
       </div>
     )

@@ -1,5 +1,8 @@
 body {
-  background-color: #008B8B;
+  background-color: #778899;
+  background-image: url("https://cdn.pixabay.com/photo/2018/07/23/20/00/record-3557751_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .topnav {
@@ -13,7 +16,7 @@ body {
 .topnav a {
   float: left;
   display: block;
-  color: #008B8B;
+  color: #778899;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -43,7 +46,7 @@ body {
 }
 
 .topnav .search-icon {
-  color: #008B8B;
+  color: #778899;
   border-radius: 5px;
   float: right;
   padding: 6px;
@@ -72,35 +75,53 @@ body {
   }
 }
 
-.login-btn {
+.login-form button {
   background-color: #191970;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
   width: 100%;
 }
 
 .login {
   text-align: center;
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
 }
 
 .login-form {
-  /* border: 3px solid #f1f1f1; */
   width: 40%;
   display: inline-block;
-  background-color: #008B8B;;
+  background-color: none;
 }
 
-.username, input[type=password] {
+.login-form input {
+  opacity: .5;
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
+  display: block;
+  border: none;
+  border-bottom:1px solid white;
   box-sizing: border-box;
 }
+
+.login-form input:hover, .login-form:active {
+  outline: none;
+  border: none;
+  border-bottom: 4px solid #191970;
+  opacity: 1;
+  transition: width .5s ease, border-bottom .5s ease;
+}
+
+.login-form ::placeholder {
+  color: #191970;
+  opacity: 1;
+}
+
 
 .sign-up {
   background-color: #191970;
@@ -140,6 +161,8 @@ body {
 
 .review-container .content {
   padding-left: 20px;
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
 }
 
 .review-container:hover {
@@ -175,6 +198,9 @@ body {
 
 .all-review-container .content {
   padding-left: 20px;
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
+  opacity: 1;
 }
 
 .all-review-container:hover {
@@ -239,7 +265,7 @@ body {
   padding: 6px;
   margin-top: 42px;
   background-color: white;
-  margin-right: -394px;
+  margin-right: -396px;
   display: block;
 }
 
@@ -265,6 +291,19 @@ body {
 
 .artist-container {
   text-align: center;
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
+}
+
+.artist-contents {
+  padding: 5px;
+  text-align: center;
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
+}
+
+.artist-contents h2 {
+  text-decoration: underline;
 }
 
 .artist-name:hover {
@@ -277,23 +316,37 @@ body {
   padding: 40px;
 }
 
-.write-container label {
-  border-radius: 5px;
+.write-container input {
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
   padding: 6px;
-  border: none;
-  width: 100px;
+  width: 300px;
+  height: 10px;
   font-size: 13px;
-  float: left;
-  clear: both;
+  padding-bottom: 20px;
+  display: block;
+  border: none;
+  border-bottom:1px solid white;
+  box-sizing: border-box;
+  margin: 15px 15px 15px 15px;
 }
 
-.write-container input {
-  border-radius: 5px;
-  padding: 6px;
+.write-container input:hover {
+  outline: none;
   border: none;
-  width: 300px;
-  font-size: 13px;
-  clear: both;
+  border-bottom: 4px solid #191970;
+  opacity: 1;
+  transition: width .5s ease, border-bottom .5s ease;
+}
+
+.write-form input::placeholder {
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
+}
+
+.write-container textarea::placeholder {
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
 }
 
 .write-container textarea {
@@ -309,8 +362,21 @@ body {
 }
 
 .write-container button {
-  clear: both;
-  margin-left: 140px;
+  font-family: "Lucida Console", Courier, monospace;
+  display: inline-flex;
+  height: 20px;
+  width: 100px;
+  border: 2px solid #BFC0C0;
+  margin: 20px 20px 20px 20px;
+  color: #BFC0C0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 80%;
+  overflow: hidden;
 }
 
 .write-comment-container {
@@ -320,23 +386,50 @@ body {
   clear: both;
 }
 
-.comment-form textarea{
-  border-radius: 5px;
+.comment-form input{
+  background-color: #778899;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
   border: none;
-  width: 300px;
-  height: 50px;
-  font-size: 13px;
-  clear: both;
+  border-bottom:1px solid white;
+  box-sizing: border-box;
 }
 
-.comment-form button {
-  border-radius: 5px;
-  clear: both;
-  margin: auto;
+.comment-form input::placeholder {
+  color: #191970;
+  opacity: .5;
 }
 
-.comment-button {
-  border-radius: 5px;
+.comment-form input:hover {
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #191970;
+  transition: width .5s ease, border-bottom .5s ease;
+}
+
+.comment-button, .comment-form button {
+  font-family: "Lucida Console", Courier, monospace;
+  display: inline-flex;
+  height: 20px;
+  width: 100px;
+  border: 2px solid #BFC0C0;
+  margin: 20px 20px 20px 20px;
+  color: #BFC0C0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.comment-button:hover, .comment-form button:hover,
+.write-container button:hover {
+  background-color: #191970;
+  transition: width .5s ease, background-color .5s ease;
 }
 
 .button {
@@ -389,8 +482,144 @@ body {
   margin: auto;
 }
 
-.submitted-review h3{
-  border: none;
-  margin-left: -20px;
-  color: black;
+.submitted-review h3 {
+  margin-left: -40px;
+  color: #778899;
+  background-color: #191970;
+  font-family: "Lucida Console", Courier, monospace;
+  border: 2px solid #778899;
+  max-width: 480px;
+  display: inline-block;
+}
+
+/* .submitted-review p {
+  float: right;
+} */
+
+.top-charts {
+  color: #778899;
+  background-color: #191970;
+  font-family: "Lucida Console", Courier, monospace;
+  border: 2px solid #778899;
+  max-width: 150px;
+  padding: 5px;
+  display: flex;
+}
+
+.sort-select {
+  font-family: "Lucida Console", Courier, monospace;
+  display: inline-flex;
+  height: 40px;
+  width: 100px;
+  border: 2px solid #BFC0C0;
+  margin: 20px 20px 20px 20px;
+  color: #BFC0C0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #191970
+}
+
+.profile-container h2 {
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
+  text-align: center;
+}
+
+.user-reviews h3 {
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
+  text-align: center;
+}
+
+.edit-btn {
+  font-family: "Lucida Console", Courier, monospace;
+  display: inline-flex;
+  height: 40px;
+  width: 100px;
+  border: 2px solid #BFC0C0;
+  margin: 20px 20px 20px 20px;
+  color: #BFC0C0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.edit-btn:hover {
+  background-color: #191970;
+  transition: width .5s ease, background-color .5s ease;
+}
+
+.track-container {
+  clear: both;
+  float: right;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  border: 1px solid #ddd;
+  width: 25%;
+  height: 25%;
+  background-color: white;
+  margin: auto;
+}
+
+.test {
+  background-color: #191970;
+  border: 2px solid #778899;
+  border-radius: 5px;
+}
+
+.test h3 {
+  display: inline;
+}
+
+.test .tracks {
+  font-family: "Lucida Console", Courier, monospace;
+  color: #778899;
+  margin-left: 535px;
+  clear: both;
+}
+
+.test .comments-header {
+  font-family: "Lucida Console", Courier, monospace;
+  color: #778899;
+  margin-left: 320px;
+  clear: both;
+}
+
+.description {
+  display: inline-block;
+  clear: both;
+  float: right;
+  margin-right: 200px;
+  margin-top: -750px;
+  box-sizing: border-box;  box-sizing: border-box;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid #ddd;
+  background-color: white;
+  font-family: "Lucida Console", Courier, monospace;
+  color: #191970;
+}
+
+.description h3 {
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+}
+
+.description p {
+  clear: both;
+  float: none;
+  text-align: center;
+  margin: auto;
+  padding: 10px 10px 10px 10px;
 }

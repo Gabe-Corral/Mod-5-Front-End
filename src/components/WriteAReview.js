@@ -49,21 +49,15 @@ class WriteAReview extends React.Component {
     return (
       <div className="write-container">
       {this.props.user.id ? (
-        <form onSubmit={this.handleSubmit}>
-          <label>Artist Name:</label>
-          <input type="text" name="artist"/>
-          <label>Album Title:</label>
-          <input type="text" name="title"/>
-          <label>Rating:</label>
-          <input type="number" name="rating"/>
-          <label>Genre:</label>
-          <input type="text" name="genre" />
-          <label>Album Artwork:</label>
-          <input type="text" name="artwork"/>
-          <label>Release Date:</label>
-          <input type="number" name="release_date"/>
-          <label>Review:</label>
-          <textarea value={this.state.value} onChange={this.handleChange} />
+        <form onSubmit={this.handleSubmit} className="write-form">
+          <input type="text" name="artist" placeholder="Artist Name"/>
+          <input type="text" name="title" placeholder="Album Title"/>
+          <input type="number" name="rating" placeholder="Rating"/>
+          <input type="text" name="genre" placeholder="Genre"/>
+          <input type="text" name="artwork" placeholder="Album Artwork"/>
+          <input type="number" name="release_date" placeholder="Release Date"/>
+          <textarea value={this.state.value} onChange={this.handleChange}
+          placeholder="Review..."/>
           <button type="submit">Submit</button>
         </form>
       ) : (
@@ -71,8 +65,7 @@ class WriteAReview extends React.Component {
       )}
       {this.state.submitted ? (
         <div className="submitted-review">
-        <h3>Thank you for submiting a review.</h3>
-        <h3>You can find your review <a href="/reviews">here</a></h3>
+        <h3>Thank you for submiting a review. You can find your review <a href="/reviews">here</a></h3>
         </div>
       ) : ""}
       </div>

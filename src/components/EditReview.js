@@ -19,7 +19,7 @@ class EditReview extends React.Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newReview = {
       rating: e.target.rating.value,
       artist: e.target.artist.value,
@@ -42,7 +42,7 @@ class EditReview extends React.Component {
   }
 
   handleChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({ review: e.target.value })
   }
 

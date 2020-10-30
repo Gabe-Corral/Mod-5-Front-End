@@ -53,6 +53,8 @@ class Main extends React.Component {
     this.state.reviews.forEach(r => {
       if (r.id === review.id) {
         this.setState({ currentReview: r });
+        localStorage.setItem("currentReview",
+        JSON.stringify({ currentReview: r }));
       }
     })
     this.setState({ showResults: false })
@@ -161,7 +163,9 @@ class Main extends React.Component {
       </Route>
       <Route path="/review/:id">
         <EditReview
-        currentReview={this.state.currentReview} />
+        currentReview={
+          JSON.parse(localStorage.getItem("currentReview")).currentReview
+        } />
       </Route>
       <Route path="/artist/:name">
         <ArtistPage
@@ -174,7 +178,6 @@ class Main extends React.Component {
       </Route>
       <Route path="/:id">
         <ReviewPage
-        currentReview={this.state.currentReview}
         setCurrentArtist={this.setCurrentArtist}
         user={this.props.user}/>
       </Route>

@@ -44,6 +44,7 @@ class Login extends React.Component {
           this.props.handleSuccessfulAuth(res);
         }
       })
+      this.props.history.push('/')
   }
 
   handleLoginForm = (e) => {

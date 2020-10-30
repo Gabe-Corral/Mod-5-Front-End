@@ -213,7 +213,7 @@ body {
   border-radius: 4px;
   display: flex;
   border: 1px solid #ddd;
-  width: 60%;
+  width: 40%;
   height: 60%;
   background-color: white;
   margin: auto;
@@ -311,7 +311,7 @@ body {
 }
 
 .write-container {
-  margin-left: 440px;
+  margin: auto;
   width: 10%;
   padding: 40px;
 }
@@ -363,20 +363,16 @@ body {
 
 .write-container button {
   font-family: "Lucida Console", Courier, monospace;
-  display: inline-flex;
   height: 20px;
   width: 100px;
   border: 2px solid #BFC0C0;
-  margin: 20px 20px 20px 20px;
   color: #BFC0C0;
   text-transform: uppercase;
   text-decoration: none;
   font-size: .8em;
   letter-spacing: 1.5px;
-  align-items: center;
-  justify-content: center;
-  margin-left: 80%;
-  overflow: hidden;
+  margin-left: 50%;
+  margin-right: 50%;
 }
 
 .write-comment-container {
@@ -582,17 +578,25 @@ body {
   display: inline;
 }
 
-.test .tracks {
+.comment-container {
+  margin-left: inherit;
+}
+
+.track-container {
+  margin-left: inherit;
+}
+
+.tracks {
   font-family: "Lucida Console", Courier, monospace;
   color: #778899;
-  margin-left: 535px;
+  margin-left: 70%;
   clear: both;
 }
 
-.test .comments-header {
+.comments-header {
   font-family: "Lucida Console", Courier, monospace;
   color: #778899;
-  margin-left: 320px;
+  float: none;
   clear: both;
 }
 

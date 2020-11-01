@@ -488,10 +488,6 @@ body {
   display: inline-block;
 }
 
-/* .submitted-review p {
-  float: right;
-} */
-
 .top-charts {
   color: #778899;
   background-color: #191970;
@@ -654,4 +650,38 @@ body {
 .follow-buttons button:hover {
   background-color: #191970;
   transition: width .5s ease, background-color .5s ease;
+}
+
+.activity-feed {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.activity-feed h2 {
+  color: #778899;
+  background-color: #191970;
+  font-family: "Lucida Console", Courier, monospace;
+  border: 2px solid #778899;
+  max-width: 200px;
+  padding: 5px;
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+
+.activity-names {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.activity-names h2 {
+  color: #191970;
+  font-family: "Lucida Console", Courier, monospace;
+  background-color: white;
+  border-radius: 4px;
+  width: 39.5%;
+  padding: 5px;
+  display: flex;
+  text-align: center;
+  margin: auto;
 }

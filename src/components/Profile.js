@@ -59,7 +59,7 @@ const Profile = (props) => {
             } else if (following === true) {
               return (
                 <div className="follow-buttons">
-                <button >Following</button>
+                <button>Following</button>
                 </div>
               )
             }

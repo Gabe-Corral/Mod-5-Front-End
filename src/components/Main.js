@@ -170,7 +170,9 @@ class Main extends React.Component {
         <WriteAReview user={this.props.user}/>
       </Route>
       <Route exact path="/activity">
-        <Activity />
+        <Activity
+        user={this.props.user}
+        getFullReview={this.getFullReview}/>
       </Route>
       <Route path="/review/:id">
         <EditReview

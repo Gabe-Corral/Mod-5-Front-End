@@ -52,6 +52,7 @@ const ReviewPage = (props) => {
       })
     })
     setLoading(true);
+    setCommentForm(false)
   }
 
   const handleEdit = () => {

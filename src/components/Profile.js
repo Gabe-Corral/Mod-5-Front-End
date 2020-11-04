@@ -46,7 +46,7 @@ const Profile = (props) => {
 
   return (
     <div className="profile-container">
-      <h2>{user.username}</h2>
+      <h2 className="username">{user.username}</h2>
 
         {(() => {
           if (props.currentViewer !== undefined &&

@@ -16,21 +16,26 @@ const Activity = (props) => {
     }
   }, [loading, setLoading, user.id])
 
+  const sortedReviews = feed.sort(function(a, b) {
+    return new Date(b[Object.keys(b)[0]].created_at) -
+    new Date(a[Object.keys(a)[0]].created_at)
+  })
+
   return (
     <div>
-    <div className="activity-feed">
-      <h2>Activity Feed</h2>
-    </div>
+      <div className="activity-feed">
+        <h2>Activity Feed</h2>
+      </div>
 
-      {feed.map(f => {
+      {sortedReviews.map(f => {
         return (
           <div key={f[Object.keys(f)[0]].id}
-          className="activity-names">
-          <h2>{Object.keys(f)[0]}</h2>
-          <AllReviews
-          getFullReview={props.getFullReview}
-          key={f[Object.keys(f)[0]].id}
-          review={f[Object.keys(f)[0]]}/>
+            className="activity-names">
+            <h2>{Object.keys(f)[0]}</h2>
+            <AllReviews
+            getFullReview={props.getFullReview}
+            key={f[Object.keys(f)[0]].id}
+            review={f[Object.keys(f)[0]]}/>
           </div>
         )
       })}
@@ -40,4 +45,3 @@ const Activity = (props) => {
 }
 
 export default Activity;
-//f[Object.keys(f)[0]]

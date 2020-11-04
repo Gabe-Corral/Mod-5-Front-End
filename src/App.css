@@ -1,6 +1,6 @@
 body {
   background-color: #778899;
-  background-image: url("https://cdn.pixabay.com/photo/2018/07/23/20/00/record-3557751_960_720.jpg");
+  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperset.com%2Fw%2Ffull%2F4%2Fa%2Fd%2F50214.jpg&f=1&nofb=1");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -86,6 +86,14 @@ body {
   width: 100%;
 }
 
+.login-form h2, label{
+  font-family: "Lucida Console", Courier, monospace;
+  text-align: center;
+  color: #778899;
+  font-family: "Lucida Console", Courier, monospace;
+  opacity: 1;
+}
+
 .login {
   text-align: center;
   font-family: "Lucida Console", Courier, monospace;
@@ -135,10 +143,10 @@ body {
 
 .review-container {
   float: none;
+  clear: both;
   padding: 5px;
   box-sizing: border-box;
   border-radius: 4px;
-  display: flex;
   border: 1px solid #ddd;
   width: 25%;
   height: 25%;
@@ -256,16 +264,16 @@ body {
   width: 30%;
 }
 
-.search-table {
+.search-container .search-table {
   border-radius: 5px;
-  width: 30.2%; /* Full-width */
+  width: 30%; /* Full-width */
   border: 1px solid #ddd; /* Add a grey border */
   font-size: 18px; /* Increase font-size */
   float: right;
   padding: 6px;
   margin-top: 42px;
   background-color: white;
-  margin-right: -396px;
+  margin-right: -590px;
   display: block;
 }
 
@@ -385,11 +393,10 @@ body {
 .comment-form input{
   background-color: #778899;
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  height: 40px;
   display: block;
   border: none;
-  border-bottom:1px solid white;
+  border-bottom:1px solid #778899;
   box-sizing: border-box;
 }
 
@@ -409,17 +416,14 @@ body {
   font-family: "Lucida Console", Courier, monospace;
   display: inline-flex;
   height: 20px;
-  width: 100px;
+  width: 300px;
   border: 2px solid #BFC0C0;
-  margin: 20px 20px 20px 20px;
   color: #BFC0C0;
   text-transform: uppercase;
-  text-decoration: none;
   font-size: .8em;
   letter-spacing: 1.5px;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .comment-button:hover, .comment-form button:hover,
@@ -518,13 +522,14 @@ body {
 
 .profile-container h2 {
   font-family: "Lucida Console", Courier, monospace;
-  color: #191970;
   text-align: center;
+  color: #778899;
+  font-family: "Lucida Console", Courier, monospace;
 }
 
 .user-reviews h3 {
   font-family: "Lucida Console", Courier, monospace;
-  color: #191970;
+  color: #778899;
   text-align: center;
 }
 
@@ -567,7 +572,7 @@ body {
 .test {
   background-color: #191970;
   border: 2px solid #778899;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 .test h3 {
@@ -597,12 +602,11 @@ body {
 }
 
 .description {
-  display: inline-block;
-  margin-left: 30%;
-  margin-right: 30%;
-  box-sizing: border-box;  box-sizing: border-box;
+  position: absolute;
+  top: 12%;
+  margin-left: 40%;
+  width: 40%;
   border-radius: 4px;
-  display: inline-block;
   border: 1px solid #ddd;
   background-color: white;
   font-family: "Lucida Console", Courier, monospace;

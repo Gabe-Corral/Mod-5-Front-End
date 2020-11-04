@@ -130,6 +130,9 @@ body {
   opacity: 1;
 }
 
+.login-form {
+  color: red;
+}
 
 .sign-up {
   background-color: #191970;
@@ -307,7 +310,7 @@ body {
   padding: 5px;
   text-align: center;
   font-family: "Lucida Console", Courier, monospace;
-  color: #191970;
+  color: #778899;
 }
 
 .artist-contents h2 {
@@ -525,6 +528,10 @@ body {
   text-align: center;
   color: #778899;
   font-family: "Lucida Console", Courier, monospace;
+}
+
+.followerror {
+  color: red;
 }
 
 .user-reviews h3 {

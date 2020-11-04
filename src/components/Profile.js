@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import AllReviews from './AllReviews'
 
 const Profile = (props) => {
-  const [reviews, setReviews] = useState(false)
-  const [loading, setLoading] = useState(true)
-  const [following, setFollowing] = useState(false)
+  const [reviews, setReviews] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [following, setFollowing] = useState(false);
+  const [followErrer, setFollowError] = useState(false);
   const url = "http://localhost:3000";
   const user = props.user;
 
@@ -32,16 +33,21 @@ const Profile = (props) => {
   })
 
   const handleFollow = () => {
-    fetch(`${url}/followuser/${user.id}`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        follower_id: props.currentViewer.id
+    if (props.currentViewer.id !== undefined) {
+      console.log(user.id)
+      fetch(`${url}/followuser/${user.id}`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          follower_id: props.currentViewer.id
+        })
       })
-    })
-    setFollowing(true)
+      setFollowing(true);
+    } else if (props.currentViewer.id === undefined) {
+      setFollowError(true);
+    }
   }
 
   return (
@@ -55,6 +61,8 @@ const Profile = (props) => {
               return (
                 <div className="follow-buttons">
                 <button onClick={handleFollow}>Follow</button>
+                {followErrer ? (
+                  <p className="followerror">You must be logged in to do that</p>) : ""}
                 </div>)
             } else if (following === true) {
               return (

@@ -10,7 +10,8 @@ class Login extends React.Component {
       password: "",
       loginErrors: "",
       signUpErrors: "",
-      signup: false
+      signup: false,
+      showError: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
@@ -23,28 +24,31 @@ class Login extends React.Component {
   }
 
   handleSignUp = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const { username, password } = this.state;
-    console.log(username, password)
-    fetch("http://localhost:3000/registrations", {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      credentials: 'include',
-      body: JSON.stringify({
-        username: username,
-        password: password
+    if (password === e.target["password-com"].value) {
+      fetch("http://localhost:3000/registrations", {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        credentials: 'include',
+        body: JSON.stringify({
+          username: username,
+          password: password
+          })
         })
-      })
-      .then(res => res.json())
-      .then(res => {
-        if (res.status === "created") {
-          this.props.handleSuccessfulAuth(res);
-        }
-      })
-      this.props.history.push('/')
+        .then(res => res.json())
+        .then(res => {
+          if (res.status === "created") {
+            this.props.handleSuccessfulAuth(res);
+          }
+        })
+        this.props.history.push('/')
+    } else {
+      this.setState({ showError: true })
+    }
   }
 
   handleLoginForm = (e) => {
@@ -106,7 +110,8 @@ class Login extends React.Component {
             </div>
           <div>
           <label> Confirm Password</label>
-          <input type="password" placeholder="confirm password" name="password-con"/>
+          <input type="password" placeholder="confirm password" name="password-com"/>
+          {this.state.showError ? <p>Password did not match.</p> : ""}
           </div>
           <button type="submit" className="login-btn">Sign Up</button>
         </form>

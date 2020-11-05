@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Main from './components/Main'
 
-const url = "http://localhost:3000";
+const url = "https://gabes-music-reviews.herokuapp.com";
 
 class App extends React.Component {
 

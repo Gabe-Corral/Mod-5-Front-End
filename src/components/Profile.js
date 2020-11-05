@@ -6,7 +6,7 @@ const Profile = (props) => {
   const [loading, setLoading] = useState(true);
   const [following, setFollowing] = useState(false);
   const [followErrer, setFollowError] = useState(false);
-  const url = "http://localhost:3000";
+  const url = "https://gabes-music-reviews.herokuapp.com";
   const user = props.user;
 
   useEffect(() => {

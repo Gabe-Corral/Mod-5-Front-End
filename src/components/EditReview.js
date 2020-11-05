@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-const url = "http://localhost:3000";
+const url = "https://gabes-music-reviews.herokuapp.com";
 
 class EditReview extends React.Component {
 

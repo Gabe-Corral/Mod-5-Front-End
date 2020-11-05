@@ -1,6 +1,6 @@
 import React from 'react';
 
-const url = "http://localhost:3000";
+const url = "https://gabes-music-reviews.herokuapp.com";
 
 class WriteAReview extends React.Component {
 

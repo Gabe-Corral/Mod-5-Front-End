@@ -9,7 +9,7 @@ const ReviewPage = (props) => {
   const [loading, setLoading] = useState(true);
   const [author, setAuthor] = useState();
   const history = useHistory();
-  const url = "http://localhost:3000";
+  const url = "https://gabes-music-reviews.herokuapp.com";
   const review = JSON.parse(localStorage.getItem("currentReview")).currentReview;
 
   useEffect(() => {

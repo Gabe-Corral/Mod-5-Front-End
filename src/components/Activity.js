@@ -4,7 +4,7 @@ import AllReviews from './AllReviews'
 const Activity = (props) => {
   const [loading, setLoading] = useState(true);
   const [feed, setFeed] =  useState([]);
-  const url = "http://localhost:3000";
+  const url = "https://gabes-music-reviews.herokuapp.com";
   const user = props.user;
 
   useEffect(() => {

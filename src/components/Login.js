@@ -27,7 +27,7 @@ class Login extends React.Component {
     e.preventDefault();
     const { username, password } = this.state;
     if (password === e.target["password-com"].value) {
-      fetch("http://localhost:3000/registrations", {
+      fetch("https://gabes-music-reviews.herokuapp.com/registrations", {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ class Login extends React.Component {
     e.preventDefault()
     let username = e.target.username.value;
     let password = e.target.password.value;
-    fetch("http://localhost:3000/sessions", {
+    fetch("https://gabes-music-reviews.herokuapp.com/sessions", {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

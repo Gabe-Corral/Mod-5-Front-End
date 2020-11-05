@@ -12,7 +12,7 @@ import Profile from './Profile';
 import EditReview from './EditReview';
 import Activity from './Activity';
 
-const url = "http://localhost:3000";
+const url = "https://gabes-music-reviews.herokuapp.com";
 
 class Main extends React.Component {
 

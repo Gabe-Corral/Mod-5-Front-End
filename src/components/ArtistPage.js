@@ -9,7 +9,7 @@ class ArtistPage extends React.Component {
 
   componentDidMount = () => {
     const id = this.props.currentArtist.id;
-    fetch(`http://localhost:3000/getalbums/${id}`)
+    fetch(`https://gabes-music-reviews.herokuapp.com/getalbums/${id}`)
       .then(res => res.json())
       .then(albums => this.setState({ albums }))
   }

@@ -230,8 +230,6 @@ body {
   margin: auto;
 }
 
-.review-page-container .review-page-header {
-}
 
 .review-page-container .review-page-header .center{
   text-align: center;
@@ -269,15 +267,16 @@ body {
 
 .search-container .search-table {
   border-radius: 5px;
-  width: 30%; /* Full-width */
-  border: 1px solid #ddd; /* Add a grey border */
-  font-size: 18px; /* Increase font-size */
+  width: 30%;
+  border: 1px solid #ddd;
+  font-size: 18px;
   float: right;
   padding: 6px;
-  margin-top: 42px;
+  clear: right;
+  margin: auto;
+  margin-right: 46px;
   background-color: white;
-  margin-right: -590px;
-  display: block;
+  display: inline-block;
 }
 
 .review-container {
@@ -610,7 +609,7 @@ body {
 
 .description {
   position: absolute;
-  top: 12%;
+  top: 13%;
   margin-left: 40%;
   width: 40%;
   border-radius: 4px;

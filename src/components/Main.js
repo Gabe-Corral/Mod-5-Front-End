@@ -65,8 +65,12 @@ class Main extends React.Component {
 
   handleSearchBar = (e) => {
     e.preventDefault()
-    this.setState({ showResults: true });
-    this.handleSearchResults(e)
+    if (e.target.value !== "") {
+      this.setState({ showResults: true });
+      this.handleSearchResults(e)
+    } else if (e.target.value === "") {
+      this.setState({ showResults: false })
+    }
   }
 
   handleSearchResults = (e) => {
@@ -105,7 +109,7 @@ class Main extends React.Component {
 
     const type = this.state.sortType
     const sortedReviews = this.state.reviews.sort(function(a, b) {
-      return b[type] - a[type];
+      return b[type] - a[type] || new Date(b.created_at) - new Date(a.created_at);
     })
 
     return (

@@ -22,8 +22,8 @@ The insperation for this app came from personal interest and was mostly built fo
 
 **Setup:**
 
-First you need to install and run the back-end you can find those intructions [here](https://www.example.com).
-Then you can install and run the fron-end.
+First you need to install and run the back-end you can find those instructions [here](https://www.example.com).
+Then you can install and run the front-end.
 
 ```
 git clone https://github.com/Gabe-Corral/Music-Review-Front-End.git

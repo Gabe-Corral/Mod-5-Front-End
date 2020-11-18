@@ -11,7 +11,9 @@ The insperation for this app came from personal interest and was mostly built fo
 - Javascript
 - HTML
 - CSS
+
 **Back-End:**
+
 - Ruby On Rails
 - Sessions
 - Spotify API

@@ -5,6 +5,7 @@ This is a simple music review app built in React with a Rails back-end. Users ca
 The insperation for this app came from personal interest and was mostly built for fun.
 
 **Technologies Used:**
+
 **Front-End:**
 - React
 - react-router-dom
